@@ -11,10 +11,15 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(htmlRd)
 ```
 # htmlRd
+[![Travis build status](https://travis-ci.org/RDocTaskForce/htmlRd.svg?branch=master)](https://travis-ci.org/RDocTaskForce/htmlRd)
+[![Coverage status](https://codecov.io/gh/RDocTaskForce/htmlRd/branch/master/graph/badge.svg)](https://codecov.io/github/RDocTaskForce/htmlRd?branch=master)
 
-The goal of htmlRd is to ...
+The goal of htmlRd is to provide methods for converting
+[htmltools](https://cran.r-project.org/package=htmltools)
+shiny.tag objects into Rd.
 
 ## Installation
 
@@ -29,21 +34,24 @@ install.packages("htmlRd")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-## basic example code
+html <- with(htmltools::tags, {
+    div( h1("Converting HTML to Rd")
+       , p("Currently "
+          , code(a("htmlRd", href="https://github.com/RDocTaskForce/htmlRd"))
+          , " only supports HTML tags found in the "
+          , em("body"), " of the document."
+          )
+       )
+})
+html
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
+```{r}
+toRd(html)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+## Acknowledgements
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+The `testextra` package is developed by the R Documentation Task Force, 
+an [R Consortium](https://www.r-consortium.org) 
+[Infrastructure Steering Committee working group](https://www.r-consortium.org/projects/isc-working-groups).

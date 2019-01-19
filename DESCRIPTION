@@ -30,7 +30,8 @@ Imports:
     testextra,
     utils
 Suggests:
-    testthat
+    testthat,
+    covr
 Language: en-US
 Roxygen: list(roclets='rd', markdown = TRUE)
 RoxygenNote: 6.1.1
