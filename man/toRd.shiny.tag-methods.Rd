@@ -217,4 +217,21 @@ Methods for \code{\link[=toRd.shiny.tag]{toRd.shiny.tag()}}.
 \item Sub Generic: \code{\link{toRd.shiny.tag}}
 \item Generators: \code{\link{toRd.shiny.tag-generators}}
 }}
+\examples{
+toRd(htmltools::a("some text", href="https://r-project.org"))
+toRd(htmltools::tags$abbr("GPL"))
+toRd(htmltools::code("plot(rnorm(100))"))
+toRd(htmltools::tags$dfn("abc"))
+toRd(htmltools::tags$dl( htmltools::tags$dt("term1")
+                       , htmltools::tags$dd("definition 1.")
+                       , htmltools::tags$dt("term2")
+                       , htmltools::tags$dd("definition 2.")
+                       ))
+toRd(htmltools::tags$ol( htmltools::tags$li("First")
+                       , htmltools::tags$li("Second")
+                       ))
+toRd(htmltools::tags$ul( htmltools::tags$li("First")
+                       , htmltools::tags$li("Second")
+                       ))
+}
 \concept{Rd}
