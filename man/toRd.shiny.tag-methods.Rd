@@ -120,19 +120,19 @@ Methods for \code{\link[=toRd.shiny.tag]{toRd.shiny.tag()}}.
   }
 }
 \subsection{Defined Methods}{\itemize{
-    \item \code{toRd.shiny.tag.}\strong{\code{a}:} \code{<a>} → \code{\\link} if a link
-             to another help file, or → \code{\\href} if a url scheme
+    \item \code{toRd.shiny.tag.}\strong{\code{a}:} \code{<a>} is converted to \code{\\link} if a link
+             to another help file, or is converted to \code{\\href} if a url scheme
              is detected, and may throw an error if the link cannot be
              determined to be either.
-    \item \code{toRd.shiny.tag.}\strong{\code{abbr}:} \code{<abbr>} → \code{\\acronym}.
+    \item \code{toRd.shiny.tag.}\strong{\code{abbr}:} \code{<abbr>} is converted to \code{\\acronym}.
             May not have children.
             Will warn if abbreviation is not in all caps,
             use \code{abbr.check.caps=FALSE} to disable.
-    \item \code{toRd.shiny.tag.}\strong{\code{br}:} \code{<br>} → \code{\\cr}.
+    \item \code{toRd.shiny.tag.}\strong{\code{br}:} \code{<br>} is converted to \code{\\cr}.
             May not have children.
-    \item \code{toRd.shiny.tag.}\strong{\code{code}:} \code{<code>} → \code{\\code}.
+    \item \code{toRd.shiny.tag.}\strong{\code{code}:} \code{<code>} is converted to \code{\\code}.
     \item \code{toRd.shiny.tag.}\strong{\code{div}:} See \code{toRd.shiny.tag.}\strong{\code{section}}.
-    \item \code{toRd.shiny.tag.}\strong{\code{dfn}:} \code{<dfn>} → \code{\\dfn}.
+    \item \code{toRd.shiny.tag.}\strong{\code{dfn}:} \code{<dfn>} is converted to \code{\\dfn}.
             Must have a single plain text element.
     \item \code{toRd.shiny.tag.}\strong{\code{dd}:} Used with \code{<dl>} extraction.
     \item \code{toRd.shiny.tag.}\strong{\code{dt}:} Used with \code{<dt>} extraction.
@@ -141,23 +141,23 @@ Methods for \code{\link[=toRd.shiny.tag]{toRd.shiny.tag()}}.
                 \code{<dt>}\emph{\code{term}}\code{</dt>}
                 \code{<dd>}\emph{\code{definition}}\code{</dd>}
                 \code{\dots}
-            \code{</dl>} →
+            \code{</dl>} is converted to
             \code{\\describe\{}
                 \code{\\item\{}\emph{\code{term}}\code{\}}
                 \code{\{}\emph{\code{definition}}\code{\}\}}.
-    \item \code{toRd.shiny.tag.}\strong{\code{html}:} \code{<html>} → \code{Rd} container.
-    \item \code{toRd.shiny.tag.}\strong{\code{img}:} \code{<img>} → \code{\\figure}.
+    \item \code{toRd.shiny.tag.}\strong{\code{html}:} \code{<html>} is converted to \code{Rd} container.
+    \item \code{toRd.shiny.tag.}\strong{\code{img}:} \code{<img>} is converted to \code{\\figure}.
             HTML must contain a \code{"src"} attribute.
-    \item \code{toRd.shiny.tag.}\strong{\code{li}:} \code{<li>} → \code{\\item}.
-    \item \code{toRd.shiny.tag.}\strong{\code{p}:} \code{<p>} → Rd container of
+    \item \code{toRd.shiny.tag.}\strong{\code{li}:} \code{<li>} is converted to \code{\\item}.
+    \item \code{toRd.shiny.tag.}\strong{\code{p}:} \code{<p>} is converted to Rd container of
             content with two newlines appended for paragraph break.
-    \item \code{toRd.shiny.tag.}\strong{\code{ol}:} \code{<ol>} → \code{\\enumerate}.
+    \item \code{toRd.shiny.tag.}\strong{\code{ol}:} \code{<ol>} is converted to \code{\\enumerate}.
             May only contain \code{<li>} nodes.
-    \item \code{toRd.shiny.tag.}\strong{\code{section}:} \code{<section>} → \code{\\section} or
+    \item \code{toRd.shiny.tag.}\strong{\code{section}:} \code{<section>} is converted to \code{\\section} or
             \code{\\subsection}, depending on nesting.
             Must be able to determine a title, otherwise will
             generate an error.
-    \item \code{toRd.shiny.tag.}\strong{\code{table}:} \code{<table>} → \code{\\tabular}.
+    \item \code{toRd.shiny.tag.}\strong{\code{table}:} \code{<table>} is converted to \code{\\tabular}.
             Table rows are separated with \code{\\cr} and columns within
             rows by \code{\\tab}.
             May only contain \code{<thead>}, \code{<tbody>}, and
@@ -181,7 +181,7 @@ Methods for \code{\link[=toRd.shiny.tag]{toRd.shiny.tag()}}.
     \item \code{toRd.shiny.tag.}\strong{\code{thead}:} Table header.
             Same as \code{tbody} and and \code{tfoot} except the
             information loss message is given as a warning.
-    \item \code{toRd.shiny.tag.}\strong{\code{ul}:} \code{<ul>} → \code{\\itemize}.
+    \item \code{toRd.shiny.tag.}\strong{\code{ul}:} \code{<ul>} is converted to \code{\\itemize}.
             May only contain \code{<li>} nodes.
 }}
 \subsection{Generated Methods}{
@@ -201,14 +201,14 @@ Methods for \code{\link[=toRd.shiny.tag]{toRd.shiny.tag()}}.
   }
   \emph{Converters:} Convert simply from an HTML tag to an Rd tag.
   \itemize{
-    \item \code{toRd.shiny.tag.}\strong{\code{aside}:}  \code{<aside>} → \code{\\note}
-    \item \code{toRd.shiny.tag.}\strong{\code{em}:} \code{<em>} → \code{\\emph}
-    \item \code{toRd.shiny.tag.}\strong{\code{cite}:}  \code{<cite>} → \code{\\cite}
-    \item \code{toRd.shiny.tag.}\strong{\code{kbd}:}  \code{<kbd>} → \code{\\kbd}
-    \item \code{toRd.shiny.tag.}\strong{\code{pre}:}  \code{<pre>} → \code{\\preformatted}
-    \item \code{toRd.shiny.tag.}\strong{\code{q}:}  \code{<q>} → \code{\\dQuote}
-    \item \code{toRd.shiny.tag.}\strong{\code{samp}:}  \code{<samp>} → \code{\\preformatted}
-    \item \code{toRd.shiny.tag.}\strong{\code{strong}:}  \code{<strong>} → \code{\\strong}
+    \item \code{toRd.shiny.tag.}\strong{\code{aside}:}  \code{<aside>} is converted to \code{\\note}
+    \item \code{toRd.shiny.tag.}\strong{\code{em}:} \code{<em>} is converted to \code{\\emph}
+    \item \code{toRd.shiny.tag.}\strong{\code{cite}:}  \code{<cite>} is converted to \code{\\cite}
+    \item \code{toRd.shiny.tag.}\strong{\code{kbd}:}  \code{<kbd>} is converted to \code{\\kbd}
+    \item \code{toRd.shiny.tag.}\strong{\code{pre}:}  \code{<pre>} is converted to \code{\\preformatted}
+    \item \code{toRd.shiny.tag.}\strong{\code{q}:}  \code{<q>} is converted to \code{\\dQuote}
+    \item \code{toRd.shiny.tag.}\strong{\code{samp}:}  \code{<samp>} is converted to \code{\\preformatted}
+    \item \code{toRd.shiny.tag.}\strong{\code{strong}:}  \code{<strong>} is converted to \code{\\strong}
  }
 }
 }
